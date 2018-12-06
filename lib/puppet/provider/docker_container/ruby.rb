@@ -115,7 +115,7 @@ Puppet::Type.type(:docker_container).provide(:ruby) do
       vols.each { |val| options << '--volume' << val }
     end
 
-    args = %w[container run] + options << resource[:image]
+    args = %w[container run -d] + options << resource[:image]
     docker(args)
   end
 
